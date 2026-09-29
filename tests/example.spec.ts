@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { config } from "../api-test.config";
 let authToken: string
 test.beforeAll('run before all ',async ({request})=>{
     const tokenResponse = await request.post(
@@ -6,8 +7,8 @@ test.beforeAll('run before all ',async ({request})=>{
     {
       data: {
         user: {
-          email: "abhirambalajinithya@gmail.com",
-          password: "welcome123",
+          email: config.userEmail,
+          password: config.userPassword,
         },
       },
     },
@@ -52,8 +53,8 @@ test("Create and Delete Article", async ({ request }) => {
   //   {
   //     data: {
   //       user: {
-  //         email: "abhirambalajinithya@gmail.com",
-  //         password: "welcome123",
+  //         email: config.userEmail,
+  //         password: config.userPassword,
   //       },
   //     },
   //   },
@@ -124,8 +125,8 @@ test("Create and Update Article", async ({ request }) => {
   //   {
   //     data: {
   //       user: {
-  //         email: "abhirambalajinithya@gmail.com",
-  //         password: "welcome123",
+  //         email: config.userEmail,
+  //         password: config.userPassword,
   //       },
   //     },
   //   },
